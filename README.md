@@ -25,10 +25,12 @@ BLE UART - Plan is to use Gcode or similar commands, so it's easier to understan
 
 ## Hardware design 
 
+![Xiao BLE pinout](https://files.seeedstudio.com/wiki/XIAO-BLE/pinout2.png)
+
 Xiao has just enough pins 
 | Pin | Purpose          |     Pin | Purpose    |
-| 0   | limit switch     |   5V    | N/C        |
-| 1   | limit switch     |   GND   | To drivers |
+| 0   | limit switch high |   5V    | N/C        |
+| 1   | limit switch low |   GND   | To drivers |
 | 2   | Motor - slider 1 |   3v3   |   N/C      |
 | 3   | Motor - slider 2 |   10    | Motor - rotator 1 |
 | 4   | Motor - slider 3 |   9     | Motor - rotator 2 |
@@ -48,5 +50,5 @@ May need an optocoupler, need to look at my old notes.
 
 Looks like it's just a matter of shorting a TRS in different configs for focus and shutter
 See if we can another pin from NFC ... looks like yes. 
-https://www.reddit.com/r/olkb/comments/11hl7is/extra_gpio_on_seeed_xiao_controllers_via_zmk/
+[reddit reference for ZMK, not Arduino](https://www.reddit.com/r/olkb/comments/11hl7is/extra_gpio_on_seeed_xiao_controllers_via_zmk/)
 
