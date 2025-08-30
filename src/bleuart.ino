@@ -24,7 +24,7 @@ Can add an app front end, and set up UART control.
 #include <bluefruit.h>
 #include <Adafruit_LittleFS.h>
 #include <InternalFileSystem.h>
-#include <AccelStepper.h>
+#include <motors.h>
 
 
 // BLE Service
@@ -33,24 +33,14 @@ BLEDis  bledis;  // device information
 BLEUart bleuart; // uart over ble
 BLEBas  blebas;  // battery
 
-// Steppers
-AccelStepper slider_stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
-AccelStepper rotator_stepper(AccelStepper::FULL4WIRE, 7,8,9,10); 
-
 
 void setup()
 {
   Serial.begin(115200);
   pinMode(LED_GREEN, OUTPUT);
 
-  // slider
-  slider_stepper.setMaxSpeed(900);
-  slider_stepper.setAcceleration(30);
-  slider_stepper.moveTo(0);
-  
-  rotator_stepper.setMaxSpeed(900);
-  slider_stepper.setAcceleration(30);
-  slider_stepper.moveTo(0);
+  setup_steppers();
+
 
 #if CFG_DEBUG
   // Blocking wait for connection when debug mode is enabled via IDE
@@ -149,32 +139,18 @@ void loop()
     if ( ch == 'a'){
       Serial.write("a intercept - change dir");
       digitalToggle(LED_GREEN);
-      if (slider_stepper.distanceToGo() == 0)
-         slider_stepper.moveTo(slider_stepper.currentPosition() + 50);
+      slide_dist(50);
     } else if (ch == 'b' ) {
       Serial.write("b intercept - change dir");
       digitalToggle(LED_GREEN);
-      if (slider_stepper.distanceToGo() == 0)
-         slider_stepper.moveTo(slider_stepper.currentPosition() - 50);
+      slide_dist(-50);
     } else {
       Serial.write(ch);
     }
   }
 
   // slider_stepper.run();
-  if (!slider_stepper.run()){
-    slider_stepper.disableOutputs();
-  } else {
-    slider_stepper.enableOutputs();
-  }
-
-  if (!rotator_stepper.run()){
-    rotator_stepper.disableOutputs();
-  } else {
-    rotator_stepper.enableOutputs();
-  }
-
-
+  run_or_off();
 }
 
 // callback invoked when central connects
