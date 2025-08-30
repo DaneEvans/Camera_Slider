@@ -13,6 +13,8 @@ volatile byte ledState = LOW;
 
 
 void limit_motors() {  
+    // digitalWrite(LED_RED, );
+    digitalToggle(LED_RED);
     slider_stepper.disableOutputs();
     slider_stepper.moveTo(slider_stepper.currentPosition());
 }
@@ -23,6 +25,7 @@ void setup_steppers(){
 // limit switches
   pinMode(TOP_LIMIT, INPUT_PULLUP);
   pinMode(BOTTOM_LIMIT, INPUT_PULLUP);
+  pinMode(LED_RED, OUTPUT);
 
   attachInterrupt(digitalPinToInterrupt(TOP_LIMIT), limit_motors, FALLING);
   attachInterrupt(digitalPinToInterrupt(BOTTOM_LIMIT), limit_motors, FALLING);
@@ -32,9 +35,14 @@ void setup_steppers(){
   slider_stepper.setAcceleration(30);
   slider_stepper.moveTo(0);
   
-  rotator_stepper.setMaxSpeed(900);
+  rotator_stepper.setMaxSpeed(2000);
   slider_stepper.setAcceleration(30);
   slider_stepper.moveTo(0);
+
+    digitalToggle(LED_RED);
+    delay(200);
+    digitalToggle(LED_RED);
+
 }
 
 void slide_dist(int dist){
