@@ -6,7 +6,26 @@ AccelStepper slider_stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on 
 AccelStepper rotator_stepper(AccelStepper::FULL4WIRE, 7,8,9,10); 
 
 
+#define TOP_LIMIT 0
+#define BOTTOM_LIMIT 1
+
+volatile byte ledState = LOW;
+
+
+void limit_motors() {  
+    slider_stepper.disableOutputs();
+    slider_stepper.moveTo(slider_stepper.currentPosition());
+}
+
+
+
 void setup_steppers(){
+// limit switches
+  pinMode(TOP_LIMIT, INPUT_PULLUP);
+  pinMode(BOTTOM_LIMIT, INPUT_PULLUP);
+
+  attachInterrupt(digitalPinToInterrupt(TOP_LIMIT), limit_motors, FALLING);
+  attachInterrupt(digitalPinToInterrupt(BOTTOM_LIMIT), limit_motors, FALLING);
 
   // slider
   slider_stepper.setMaxSpeed(900);
