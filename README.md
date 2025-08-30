@@ -28,7 +28,9 @@ BLE UART - Plan is to use Gcode or similar commands, so it's easier to understan
 ![Xiao BLE pinout](https://files.seeedstudio.com/wiki/XIAO-BLE/pinout2.png)
 
 Xiao has just enough pins 
+
 | Pin | Purpose          |     Pin | Purpose    |
+| --- | --- | --- | --- |
 | 0   | limit switch high |   5V    | N/C        |
 | 1   | limit switch low |   GND   | To drivers |
 | 2   | Motor - slider 1 |   3v3   |   N/C      |
