@@ -160,7 +160,20 @@ void loop()
       Serial.write(ch);
     }
   }
-  slider_stepper.run();
+
+  // slider_stepper.run();
+  if (!slider_stepper.run()){
+    slider_stepper.disableOutputs();
+  } else {
+    slider_stepper.enableOutputs();
+  }
+
+  if (!rotator_stepper.run()){
+    rotator_stepper.disableOutputs();
+  } else {
+    rotator_stepper.enableOutputs();
+  }
+
 
 }
 
