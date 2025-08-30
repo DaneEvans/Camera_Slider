@@ -24,6 +24,8 @@ Can add an app front end, and set up UART control.
 #include <bluefruit.h>
 #include <Adafruit_LittleFS.h>
 #include <InternalFileSystem.h>
+#include <motors.h>
+
 
 // BLE Service
 BLEDfu  bledfu;  // OTA DFU service
@@ -31,17 +33,21 @@ BLEDis  bledis;  // device information
 BLEUart bleuart; // uart over ble
 BLEBas  blebas;  // battery
 
+
 void setup()
 {
   Serial.begin(115200);
   pinMode(LED_GREEN, OUTPUT);
+
+  setup_steppers();
+
 
 #if CFG_DEBUG
   // Blocking wait for connection when debug mode is enabled via IDE
   while ( !Serial ) yield();
 #endif
   
-  Serial.println("Bluefruit52 BLEUART Example");
+  Serial.println("Camera Slider");
   Serial.println("---------------------------\n");
 
   // Setup the BLE LED to be enabled on CONNECT
@@ -59,6 +65,7 @@ void setup()
   //Bluefruit.setName(getMcuUniqueID()); // useful testing with multiple central connections
   Bluefruit.Periph.setConnectCallback(connect_callback);
   Bluefruit.Periph.setDisconnectCallback(disconnect_callback);
+  Bluefruit.setName("Camera Slider");
 
   // To be consistent OTA DFU should be added first if it exists
   bledfu.begin();
@@ -129,13 +136,21 @@ void loop()
     uint8_t ch;
     ch = (uint8_t) bleuart.read();
 
-    if ( ch == 'B'){
-      Serial.write("B intercepted");
+    if ( ch == 'a'){
+      Serial.write("a intercept - change dir");
       digitalToggle(LED_GREEN);
+      slide_dist(50);
+    } else if (ch == 'b' ) {
+      Serial.write("b intercept - change dir");
+      digitalToggle(LED_GREEN);
+      slide_dist(-50);
     } else {
       Serial.write(ch);
     }
   }
+
+  // slider_stepper.run();
+  run_or_off();
 }
 
 // callback invoked when central connects
