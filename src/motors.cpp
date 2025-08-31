@@ -13,7 +13,6 @@ volatile byte ledState = LOW;
 
 
 void limit_motors() {  
-    // digitalWrite(LED_RED, );
     digitalToggle(LED_RED);
     slider_stepper.disableOutputs();
     slider_stepper.moveTo(slider_stepper.currentPosition());
