@@ -43,7 +43,7 @@ jobs:
         pio check --environment seeed_xiao_nrf52840
         
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: success()
       with:
         name: firmware-build
