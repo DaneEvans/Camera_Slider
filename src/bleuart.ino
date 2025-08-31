@@ -1,3 +1,4 @@
+/**@file*/
 /*********************************************************************
  This is an example for our nRF52 based Bluefruit LE modules
 

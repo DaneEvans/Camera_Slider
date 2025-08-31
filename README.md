@@ -15,6 +15,28 @@ Motor drivers - not settled
 
 BLE UART - Plan is to use Gcode or similar commands, so it's easier to understand. 
 
+## CI/CD Pipeline
+
+This project includes automated CI/CD workflows that:
+
+- **Build Firmware**: Automatically compiles the firmware using PlatformIO
+- **Generate Documentation**: Creates comprehensive Doxygen documentation
+- **Deploy to GitHub Pages**: Publishes documentation automatically
+- **Quality Checks**: Runs on every push and pull request
+
+### Documentation
+
+- **Live Documentation**: [View on GitHub Pages](https://daneevans.github.io/Camera_Slider_firmware/)
+- **Local Generation**: Run `make docs` to generate locally
+- **Auto-updating**: Documentation updates automatically with code changes
+
+### Workflows
+
+- `ci.yml` - Complete CI pipeline (build + docs + deploy)
+- `pages.yml` - Documentation deployment only
+- `build.yml` - Firmware building and testing
+
+See [GitHub Pages Setup Guide](docs/GITHUB_PAGES_SETUP.md) for detailed configuration instructions.
 
 ## Dev Setup 
 - Download PlatformIO
