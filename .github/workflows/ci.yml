@@ -125,8 +125,17 @@ jobs:
 
       - name: Check documentation structure
         run: |
+
+        
           echo "Checking documentation structure..."
           ls -la docs/html/
+
+          # Unpack artifact if present
+          if [ -f "docs/html/artifact.tar" ]; then
+            echo "Found artifact.tar, extracting..."
+            tar -xf docs/html/artifact.tar -C docs/html/
+            ls -la docs/html/
+          fi
 
           # Check if main index file exists
           if [ -f "docs/html/index.html" ]; then
