@@ -7,23 +7,27 @@ I've successfully created a comprehensive index page (`include/ble_index.h`) for
 ## What the Index Page Provides
 
 ### 🏠 **Main Entry Point**
+
 - **Welcome Section**: Clear introduction to the BLE API
 - **Quick Start Guide**: 3-step process to get developers up and running
 - **API Overview**: High-level summary of all available functionality
 
 ### 📚 **Comprehensive Documentation**
+
 - **Platform Support**: Complete table of supported platforms and libraries
 - **Getting Started**: Platform-specific setup instructions
 - **Current Features**: Status of implemented, in-development, and planned features
 - **Architecture**: Visual representation of the system architecture
 
 ### 🎯 **Developer Resources**
+
 - **Command Reference**: Complete command table with parameters and responses
 - **Response Formats**: JSON examples for all response types
 - **Troubleshooting**: Common issues, error codes, and solutions
 - **Development Guide**: How to add new commands and test functionality
 
 ### 💻 **Practical Examples**
+
 - **Code Samples**: Ready-to-use examples for multiple platforms
 - **Integration Patterns**: Best practices for different use cases
 - **Testing Examples**: Scripts for validating API functionality
@@ -49,35 +53,41 @@ After running `doxygen Doxyfile`, the index page becomes:
 ## Key Sections
 
 ### 1. **Introduction & Quick Start**
+
 - Clear overview of what the API provides
 - Step-by-step connection instructions
 - Basic command examples
 
 ### 2. **Platform Support Table**
-| Platform | Library | Example File |
-|----------|---------|--------------|
-| Python | bleak | `python_simple.py` |
-| Web Browser | Web Bluetooth API | `javascript_web_ble.js` |
-| iOS | CoreBluetooth | `ios_swift_example.swift` |
-| Android | BluetoothLeGatt | `android_kotlin_example.kt` |
-| Node.js | noble | `javascript_node_ble.js` |
+
+| Platform    | Library           | Example File                |
+| ----------- | ----------------- | --------------------------- |
+| Python      | bleak             | `python_simple.py`          |
+| Web Browser | Web Bluetooth API | `javascript_web_ble.js`     |
+| iOS         | CoreBluetooth     | `ios_swift_example.swift`   |
+| Android     | BluetoothLeGatt   | `android_kotlin_example.kt` |
+| Node.js     | noble             | `javascript_node_ble.js`    |
 
 ### 3. **Feature Status**
+
 - ✅ **Implemented**: Basic movement control, LED indication, BLE communication
 - 🔄 **In Development**: Position tracking, speed control, status reporting
 - 📋 **Planned**: Programmed sequences, multi-device support, data logging
 
 ### 4. **Command Reference**
+
 - Movement commands (`a`, `b`, `pos:<value>`, `speed:<value>`)
 - Control commands (`s`, `x`, `r`, `h`)
 - Configuration commands (`config:save`, `config:load`, `config:reset`)
 
 ### 5. **Response Formats**
+
 - JSON status responses
 - Error reporting with codes
 - Command acknowledgments
 
 ### 6. **Troubleshooting**
+
 - Common connection issues
 - Command problems
 - Performance issues
@@ -86,18 +96,21 @@ After running `doxygen Doxyfile`, the index page becomes:
 ## Benefits of the Index Page
 
 ### For Developers
+
 1. **Single Entry Point**: Everything needed in one place
 2. **Quick Start**: Get up and running in minutes
 3. **Platform Guidance**: Clear instructions for their specific platform
 4. **Complete Reference**: All commands and responses documented
 
 ### For Documentation
+
 1. **Professional Appearance**: Industry-standard documentation structure
 2. **Easy Navigation**: Logical organization and cross-references
 3. **Searchable**: Full-text search across all content
 4. **Maintainable**: Update documentation by editing header files
 
 ### For Integration
+
 1. **Examples Ready**: Copy-paste code examples
 2. **Best Practices**: Proven integration patterns
 3. **Error Handling**: Comprehensive troubleshooting guide
@@ -105,7 +118,7 @@ After running `doxygen Doxyfile`, the index page becomes:
 
 ## File Structure
 
-```
+```text
 include/
 ├── ble_index.h        # 🆕 Main documentation index (NEW!)
 ├── ble_api.h          # Complete API reference
@@ -122,6 +135,7 @@ docs/html/             # Generated Doxygen output
 ## How to Use
 
 ### 1. **View Documentation**
+
 ```bash
 # Generate documentation
 doxygen Doxyfile
@@ -131,11 +145,13 @@ open docs/html/index.html
 ```
 
 ### 2. **Navigate Sections**
+
 - Use the table of contents on the left
 - Click on section headers for direct navigation
 - Use the search functionality to find specific topics
 
 ### 3. **Find Examples**
+
 - Platform-specific examples in the "Examples" section
 - Code samples for immediate use
 - Integration patterns for different use cases

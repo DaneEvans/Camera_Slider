@@ -11,14 +11,14 @@ This directory contains the auto-generated documentation for the Camera Slider f
    ```bash
    # On macOS with Homebrew
    brew install doxygen
-   
+
    # On Ubuntu/Debian
    sudo apt-get install doxygen
-   
+
    # On Windows, download from https://www.doxygen.nl/download.html
    ```
 
-### Generating Docs 
+### Generating Docs
 
 If you prefer to run Doxygen manually:
 
@@ -26,9 +26,9 @@ If you prefer to run Doxygen manually:
 doxygen Doxyfile
 ```
 
-## Viewing docs 
+## Viewing docs
 
-- Develop -  `open docs/html/index.html`
+- Develop - `open docs/html/index.html`
 - Releases - `on github pages`
 
 ## Documentation Structure

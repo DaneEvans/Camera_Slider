@@ -1,0 +1,30 @@
+repos:
+  - repo: https://github.com/trunk-io/pre-commit-hooks
+    rev: v1.0.0
+    hooks:
+      - id: trunk
+        args: [--ci]
+        types: [text]
+        stages: [commit, push]
+        additional_dependencies: [trunk]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+      - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: trailing-whitespace
