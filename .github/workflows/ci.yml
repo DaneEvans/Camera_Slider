@@ -60,33 +60,33 @@ jobs:
         path: .pio/build/seeed_xiao_nrf52840/
 
   generate-docs:
-  runs-on: ubuntu-latest
-  name: Generate Documentation
-    
-  steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
-    
-  - name: Setup Doxygen
-    run: |
-      sudo apt-get update
-      sudo apt-get install -y doxygen graphviz
+    runs-on: ubuntu-latest
+    name: Generate Documentation
       
-  - name: Generate documentation
-    run: |
-      doxygen Doxyfile
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
       
-  - name: Check documentation
-    run: |
-      echo "Documentation generated successfully"
-      echo "Generated files:"
-      find docs/html/ -type f | head -20
-      echo "Total files: $(find docs/html/ -type f | wc -l)"
-      
-  - name: Upload documentation artifacts
-    uses: actions/upload-pages-artifact@v3
-    with:
-      path: docs/html
+    - name: Setup Doxygen
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y doxygen graphviz
+        
+    - name: Generate documentation
+      run: |
+        doxygen Doxyfile
+        
+    - name: Check documentation
+      run: |
+        echo "Documentation generated successfully"
+        echo "Generated files:"
+        find docs/html/ -type f | head -20
+        echo "Total files: $(find docs/html/ -type f | wc -l)"
+        
+    - name: Upload documentation artifacts
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: docs/html
 
   deploy-docs:
     environment:
