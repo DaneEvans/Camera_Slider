@@ -1,4 +1,6 @@
 name: PlatformIO CI
+# This workflow builds the PlatformIO project on every push.
+# It does not store or upload any build artifacts.
 
 on: [push]
 
