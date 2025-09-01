@@ -1,7 +1,7 @@
 /**
  * @file ble_api.h
  * @brief BLE API Documentation for Camera Slider Firmware
- * @author Camera Slider Team
+ * @author Dane Evans
  * @version 1.0
  * @date 2024
  * 

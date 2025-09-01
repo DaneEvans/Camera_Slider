@@ -7,6 +7,7 @@ This directory contains the auto-generated documentation for the Camera Slider f
 ### Prerequisites
 
 1. Install Doxygen:
+
    ```bash
    # On macOS with Homebrew
    brew install doxygen
@@ -17,7 +18,6 @@ This directory contains the auto-generated documentation for the Camera Slider f
    # On Windows, download from https://www.doxygen.nl/download.html
    ```
 
-
 ### Generating Docs 
 
 If you prefer to run Doxygen manually:
@@ -27,8 +27,9 @@ doxygen Doxyfile
 ```
 
 ## Viewing docs 
+
 - Develop -  `open docs/html/index.html`
-- Releases - `on github pages` 
+- Releases - `on github pages`
 
 ## Documentation Structure
 
@@ -45,19 +46,6 @@ The generated documentation includes:
 The `Doxyfile` is configured to:
 
 - Include all files in `src/`, `include/`, and `lib/` directories
-- Automatically detect new files added to these directories
 - Generate HTML documentation with source browsing
 - Include dependency graphs and class diagrams
 - Support C, C++, and Arduino (.ino) files
-
-## Adding New Files
-
-Simply add new source files to the `src/` directory - they will automatically be included in the next documentation generation.
-
-## Customization
-
-To modify the documentation generation:
-
-1. Edit `Doxyfile` to change settings
-2. Add Doxygen comments to your source code for better documentation
-
