@@ -1,47 +1,22 @@
-name: Trunk Lint & Format
+name: Pull Request
+on: [pull_request]
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
-  workflow_dispatch:
-
-# Explicitly define permissions to avoid security warnings
-permissions:
-  contents: read
-  actions: read
-  security-events: write
+permissions: read-all
 
 jobs:
-  trunk:
-    name: Trunk Check
+  trunk_check:
+    name: Trunk Code Quality Runner
     runs-on: ubuntu-latest
+    permissions:
+      checks: write # For trunk to post annotations
+      contents: read # For repo checkout
+
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Trunk
-        uses: trunk-io/setup-trunk@v1
-        with:
-          version: 1.25.0
-
-      - name: Cache Trunk
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/trunk
-          key: ${{ runner.os }}-trunk-${{ hashFiles('.trunk/trunk.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-trunk-
-
-      - name: Trunk Check
-        run: trunk check --ci
-
-      - name: Trunk Format Check
-        run: trunk fmt --no-fix --all
-
-      - name: Upload Trunk Results
-        uses: trunk-io/upload-trunk@v1
-        if: always()
-        with:
-          name: trunk-results
+      - name: Trunk Code Quality
+        uses: trunk-io/trunk-action@v1

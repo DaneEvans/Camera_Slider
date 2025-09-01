@@ -1,4 +1,6 @@
 name: PlatformIO CI
+# This workflow builds the PlatformIO project on every push.
+# It does not store or upload any build artifacts.
 
 on: [push]
 
@@ -16,7 +18,7 @@ jobs:
           key: ${{ runner.os }}-pio
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
