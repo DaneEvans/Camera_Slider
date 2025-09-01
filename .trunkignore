@@ -1,0 +1,56 @@
+# Documentation and generated files
+docs/
+*.md
+
+# Build artifacts and dependencies
+lib/
+test/
+build/
+.pio/
+.vscode/
+
+# Configuration files
+Doxyfile
+Makefile
+platformio.ini
+
+# Trunk and GitHub files
+.trunk/
+.github/
+
+# Arduino files (not supported by trunk)
+*.ino
+
+# Binary and temporary files
+*.bin
+*.hex
+*.elf
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+*.dll
+*.tmp
+*.log
+*.cache
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
