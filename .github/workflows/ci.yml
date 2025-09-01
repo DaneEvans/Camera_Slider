@@ -13,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.9"
 
@@ -36,7 +36,7 @@ jobs:
           pip install platformio
 
       - name: Cache PlatformIO packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             ~/.platformio
@@ -126,15 +126,15 @@ jobs:
       - name: Check documentation structure
         run: |
 
-        
+
           echo "Checking documentation structure..."
-          ls -la docs/html/
+          # ls -la docs/html/
 
           # Unpack artifact if present
           if [ -f "docs/html/artifact.tar" ]; then
             echo "Found artifact.tar, extracting..."
             tar -xf docs/html/artifact.tar -C docs/html/
-            ls -la docs/html/
+            # ls -la docs/html/
           fi
 
           # Check if main index file exists
@@ -146,7 +146,7 @@ jobs:
           fi
 
           # Check if source files are documented
-          if [ -d "docs/html/files.html" ]; then
+          if [ -f "docs/html/files.html" ]; then
             echo "✓ Source files documented"
           else
             echo "✗ Source files not documented"
