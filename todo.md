@@ -6,8 +6,8 @@
 - [x] CI in
 - [x] Setup limit switches 
 - [ ] Proper control over BLE
-- [ ] API  doc 
+- [x] API  doc 
 - [ ] Get the Axxxx driver in, 
-- [ ] CI to build the firmware
+- [x] CI to build the firmware
 - [ ] CI linting 
 - [ ] Phone app ... 

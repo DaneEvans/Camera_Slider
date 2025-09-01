@@ -17,36 +17,18 @@ This directory contains the auto-generated documentation for the Camera Slider f
    # On Windows, download from https://www.doxygen.nl/download.html
    ```
 
-2. Or use the provided Makefile to install Doxygen:
-   ```bash
-   make install-doxygen
-   ```
 
-### Using the Makefile
-
-The project includes a Makefile with convenient targets for documentation generation:
-
-```bash
-# Generate documentation
-make docs
-
-# Generate docs and open in browser
-make docs-open
-
-# Clean generated files
-make clean
-
-# Show help
-make help
-```
-
-### Manual Generation
+### Generating Docs 
 
 If you prefer to run Doxygen manually:
 
 ```bash
 doxygen Doxyfile
 ```
+
+## Viewing docs 
+- Develop -  `open docs/html/index.html`
+- Releases - `on github pages` 
 
 ## Documentation Structure
 
@@ -78,10 +60,4 @@ To modify the documentation generation:
 
 1. Edit `Doxyfile` to change settings
 2. Add Doxygen comments to your source code for better documentation
-3. Modify the Makefile targets as needed
 
-## Troubleshooting
-
-- **Doxygen not found**: Run `make install-doxygen` or install manually
-- **Empty documentation**: Ensure your source files are in the configured input directories
-- **Build errors**: Check that all dependencies are installed and paths are correct

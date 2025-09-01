@@ -606,5 +606,3 @@ EXTERNAL_SEARCH_ID    =
 ## The EXTRA_SEARCH_MAPPINGS tag can be used to specify additional search
 ## mappings for external search engines
 EXTRA_SEARCH_MAPPINGS =
-
-EXTENSION_MAPPING = ino=c
