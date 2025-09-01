@@ -86,6 +86,7 @@ jobs:
       - name: Upload documentation artifacts
         uses: actions/upload-pages-artifact@v3
         with:
+          name: pages
           path: docs/html
 
   deploy-docs:
